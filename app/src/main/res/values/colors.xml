@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#e9515f</color>
+    <color name="login_bg_end">#e9515f</color>
+    <color name="login_bg_start">#8728dc</color>
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="transparent">#00000000</color>
+    <color name="light_gray">#d1d1d1</color>
+    <color name="gray">#868686</color>
+    <color name="button_bg">#f2f2f2</color>
+    <color name="semi_transparent">#23000000</color>
+    <color name="semi_transparent_dark">#93000000</color>
+    <color name="blue">#59a0fd</color>
+    <color name="darkGray">#403f3f</color>
+</resources>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="40dp"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".module.personality_test.PersonalityTestActivity"
+    tools:showIn="@layout/activity_personality_test">
+
+    <LinearLayout
+        android:id="@+id/buttons_ll"
+        style="?android:attr/buttonBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp">
+
+        <Button
+            android:id="@+id/skip_btn"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_selector"
+            android:foreground="?attr/selectableItemBackground"
+            android:text="@string/skip"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/continue_btn"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_selector"
+            android:enabled="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:text="@string/continue_text"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <com.yuyakaido.android.cardstackview.CardStackView
+        android:id="@+id/cards_csv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/buttons_ll" />
+
+    <TextView
+        android:id="@+id/end_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:gravity="center"
+        android:text="@string/the_test_is_complete_thank_you_for_participating"
+        android:textColor="@color/black"
+        android:textSize="26sp"
+        android:visibility="gone" />
+
+</RelativeLayout>

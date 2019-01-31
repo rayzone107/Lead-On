@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "609882244265",
+    "firebase_url": "https://leadon-78bd4.firebaseio.com",
+    "project_id": "leadon-78bd4",
+    "storage_bucket": "leadon-78bd4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:609882244265:android:2ba42ba9fb0fb1ba",
+        "android_client_info": {
+          "package_name": "com.rachitgoyal.leadon"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "609882244265-8qk0t8a3vpdlnh6psb96g1fi6l50ngrp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rachitgoyal.leadon",
+            "certificate_hash": "9af86b37821d7674577003748b0759496f4b035f"
+          }
+        },
+        {
+          "client_id": "609882244265-obhoabiqeunijfet53m7hdohuk346jg3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBB6dh9nN9aFhB4jNDVOrdJYwZfkCaL9WI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "609882244265-obhoabiqeunijfet53m7hdohuk346jg3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
