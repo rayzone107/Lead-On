@@ -37,6 +37,7 @@ import com.rachitgoyal.leadon.module.home.fragment_discount.DiscountDialogFragme
 import com.rachitgoyal.leadon.module.home.personal_fragment.TasksFragment;
 import com.rachitgoyal.leadon.module.login.LoginActivity;
 import com.rachitgoyal.leadon.util.Constants;
+import com.rachitgoyal.leadon.util.StringUtils;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -113,9 +114,21 @@ public class HomeActivity extends BaseActivity implements HomeContract.View, Off
             TextView emailTV = header.findViewById(R.id.email_id_tv);
             ImageView imageIV = header.findViewById(R.id.user_image_iv);
 
-            userNameTV.setText(user.getDisplayName());
+            String name = user.getDisplayName();
+            if (StringUtils.isEmpty(name)) {
+                int index = user.getEmail().indexOf('@');
+                name = user.getEmail().substring(0, index);
+                name = name.substring(0, 1).toUpperCase() + name.substring(1);
+            }
+
+            userNameTV.setText(name);
             emailTV.setText(user.getEmail());
-            Glide.with(imageIV).load(user.getPhotoUrl()).into(imageIV);
+            if (user.getPhotoUrl() == null) {
+                Glide.with(imageIV).load(R.drawable.ic_man).into(imageIV);
+            } else {
+                Glide.with(imageIV).load(user.getPhotoUrl()).into(imageIV);
+            }
+
         }
 
         mOfferViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -181,8 +194,8 @@ public class HomeActivity extends BaseActivity implements HomeContract.View, Off
                 sendIntent.setAction(Intent.ACTION_SEND);
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                 String code = "DUMMY";
-                if (user != null && user.getDisplayName() != null) {
-                    code = user.getDisplayName().toUpperCase().replaceAll("\\s+", "").substring(0, 5);
+                if (user != null && !StringUtils.isEmpty(user.getDisplayName())) {
+                    code = user.getDisplayName().toUpperCase().replaceAll("\\s+", "").substring(0, Math.max(user.getDisplayName().length(), 5));
                 }
                 sendIntent.putExtra(Intent.EXTRA_TEXT, getString(R.string.referral_message, code));
                 sendIntent.setType("text/plain");

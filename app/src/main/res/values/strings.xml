@@ -63,4 +63,5 @@
     <string name="cancel">Cancel</string>
     <string name="submit">Submit</string>
     <string name="details_saved">Your details have been stored. You will receive an email with the offer code shortly</string>
+    <string name="authentication_email_sent">An authentication email has been sent to your email ID.</string>
 </resources>

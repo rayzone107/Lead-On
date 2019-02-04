@@ -3,10 +3,16 @@ package com.rachitgoyal.leadon.module.login;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.StringRes;
+import android.view.KeyEvent;
 import android.view.View;
-import android.widget.*;
-import butterknife.BindView;
-import butterknife.ButterKnife;
+import android.view.inputmethod.EditorInfo;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.ScrollView;
+import android.widget.TextView;
+import android.widget.Toast;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.rachitgoyal.leadon.R;
@@ -15,6 +21,9 @@ import com.rachitgoyal.leadon.module.home.HomeActivity;
 import com.rachitgoyal.leadon.module.sign_up.SignUpActivity;
 import com.rachitgoyal.leadon.util.Constants;
 import com.rachitgoyal.leadon.util.Utils;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class LoginActivity extends BaseActivity implements LoginContract.View {
 
@@ -89,6 +98,20 @@ public class LoginActivity extends BaseActivity implements LoginContract.View {
                             }
                         });
             }
+        });
+
+        mEmailET.setOnEditorActionListener((v, actionId, event) -> {
+            if ((event != null && (event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) || (actionId == EditorInfo.IME_ACTION_DONE)) {
+                mPasswordET.requestFocus();
+            }
+            return false;
+        });
+
+        mPasswordET.setOnEditorActionListener((v, actionId, event) -> {
+            if ((event != null && (event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) || (actionId == EditorInfo.IME_ACTION_DONE)) {
+                mLoginBtn.performClick();
+            }
+            return false;
         });
     }
 

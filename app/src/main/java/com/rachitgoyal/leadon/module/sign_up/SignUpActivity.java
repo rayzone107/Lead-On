@@ -3,10 +3,16 @@ package com.rachitgoyal.leadon.module.sign_up;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.StringRes;
+import android.view.KeyEvent;
 import android.view.View;
-import android.widget.*;
-import butterknife.BindView;
-import butterknife.ButterKnife;
+import android.view.inputmethod.EditorInfo;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.ScrollView;
+import android.widget.TextView;
+import android.widget.Toast;
+
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -22,6 +28,9 @@ import com.rachitgoyal.leadon.module.home.HomeActivity;
 import com.rachitgoyal.leadon.module.login.LoginActivity;
 import com.rachitgoyal.leadon.util.Constants;
 import com.rachitgoyal.leadon.util.Utils;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class SignUpActivity extends BaseActivity implements SignUpContract.View {
 
@@ -85,6 +94,20 @@ public class SignUpActivity extends BaseActivity implements SignUpContract.View 
             }
         });
 
+        mEmailET.setOnEditorActionListener((v, actionId, event) -> {
+            if ((event != null && (event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) || (actionId == EditorInfo.IME_ACTION_DONE)) {
+                mPasswordET.requestFocus();
+            }
+            return false;
+        });
+
+        mPasswordET.setOnEditorActionListener((v, actionId, event) -> {
+            if ((event != null && (event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) || (actionId == EditorInfo.IME_ACTION_DONE)) {
+                mSignUpButton.performClick();
+            }
+            return false;
+        });
+
         mAlreadySignedInTV.setOnClickListener(v -> goToLoginActivity());
 
         mGoogleSignInButton.setOnClickListener(v -> {
@@ -135,6 +158,7 @@ public class SignUpActivity extends BaseActivity implements SignUpContract.View 
 
     @Override
     public void goToLoginActivity() {
+        Toast.makeText(this, getString(R.string.authentication_email_sent), Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
         startActivity(intent);
         finish();

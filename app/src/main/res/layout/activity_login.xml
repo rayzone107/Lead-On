@@ -52,6 +52,7 @@
                 android:inputType="textEmailAddress"
                 android:maxLines="1"
                 android:paddingBottom="20dp"
+                android:nextFocusDown="@id/password_et"
                 android:singleLine="true"
                 android:textColor="@color/white"
                 android:textColorHint="@color/light_gray"
