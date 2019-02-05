@@ -4,12 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginStart="10dp"
-    android:layout_marginTop="5dp"
-    android:layout_marginEnd="10dp"
+    android:layout_margin="10dp"
     app:cardCornerRadius="8dp"
     app:cardElevation="4dp"
-    app:cardUseCompatPadding="true">
+    app:cardUseCompatPadding="true"
+    tools:ignore="NestedWeights, ContentDescription">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -19,17 +18,18 @@
 
         <ImageView
             android:id="@+id/image_iv"
-            android:layout_width="150dp"
-            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
             android:scaleType="fitCenter"
-            tools:src="@drawable/discount" />
+            tools:src="@drawable/discount"
+            tools:visibility="gone" />
 
         <TextView
             android:id="@+id/title_tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_toEndOf="@id/image_iv"
+            android:layout_below="@id/image_iv"
+            android:layout_marginTop="10dp"
             android:textColor="@color/black"
             android:textSize="16sp"
             tools:text="Which of these areas are you interested in? (Can select multiple)" />
@@ -39,27 +39,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/title_tv"
-            android:layout_alignStart="@id/title_tv"
             android:layout_marginTop="10dp"
             android:textColor="@color/darkGray"
             tools:text="Description is a random long description" />
 
-        <com.ramotion.fluidslider.FluidSlider
-            android:id="@+id/slider_fs"
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/options_rv"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_below="@id/description_tv"
-            android:layout_alignStart="@id/title_tv"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="20dp"
-            app:bar_color="@color/blue"
-            app:bubble_color="@color/colorAccent"
-            app:bubble_text_color="@color/white"
-            app:duration="1000"
-            app:initial_position="0"
-            app:size="small"
-            app:text_size="20sp" />
+            android:layout_marginTop="10dp" />
 
     </RelativeLayout>
 

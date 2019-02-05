@@ -195,7 +195,7 @@ public class HomeActivity extends BaseActivity implements HomeContract.View, Off
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                 String code = "DUMMY";
                 if (user != null && !StringUtils.isEmpty(user.getDisplayName())) {
-                    code = user.getDisplayName().toUpperCase().replaceAll("\\s+", "").substring(0, Math.max(user.getDisplayName().length(), 5));
+                    code = user.getDisplayName().toUpperCase().replaceAll("\\s+", "").substring(0, Math.min(user.getDisplayName().length(), 5));
                 }
                 sendIntent.putExtra(Intent.EXTRA_TEXT, getString(R.string.referral_message, code));
                 sendIntent.setType("text/plain");

@@ -148,7 +148,9 @@ public class PersonalityTestActivity extends BaseActivity implements OnInteracti
                 if (answer != null) {
                     FirebaseDatabase database = FirebaseDatabase.getInstance();
                     DatabaseReference myRef = database.getReference("personality_test");
-                    myRef.child(user.getUid() + user.getDisplayName()).child("Question " + (mCurrentQuestionCount + 1)).setValue(answer);
+                    String name = user.getDisplayName();
+                    name = name == null ? "" : name;
+                    myRef.child(user.getUid() + name).child("Question " + (mCurrentQuestionCount + 1)).setValue(answer);
                 }
                 if (shouldProceed) {
                     mCardsCSV.smoothScrollToPosition(mCurrentQuestionCount + 1);
